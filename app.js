@@ -67,9 +67,9 @@ client.on('chat', function(packet) {
   var jsonMsg = JSON.parse(packet.message);
   console.log("1 " + JSON.stringify(jsonMsg))
   if ((typeof jsonMsg.extra[0].text === 'undefined' &&/*  jsonMsg.extra[0].split(" ")[0] !== ("<" + client.username + ">") && */jsonMsg.extra[0].length < 100 && jsonMsg.extra[0].charAt(0) !== '/')) {
-	  /*client.write("chat", {
+	  client.write("chat", {
       message: jsonMsg.extra[0].slice(jsonMsg.extra[0].split(" ")[0].length, jsonMsg.extra[0].length)
-    });*/
+    });
     console.log("2 " + JSON.stringify(jsonMsg))
       if (clientconnected)
       wsc.send(linkify(parseChat(jsonMsg, {})));
